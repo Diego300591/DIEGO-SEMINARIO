@@ -1,0 +1,4 @@
+{% extends "principal.html" %}
+{% block contenido %}
+<form action="" method="POST">{{form.as_ul}}{% csrf_token %}<input type="submit" value=".::ENVIAR::."></form>
+{% endblock %}

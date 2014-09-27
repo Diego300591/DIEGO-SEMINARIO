@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pagina Principal</title>
+</head>
+<body>
+	<ul id="menu">
+		<li><a href="/trivia/">Principal</a></li>
+		<li><a href="/trivia/nuevousuario/">Nuevo Usuario</a></li>
+		{% if user.is_anonymous %}
+		<li><a href="/trivia/login">Login</a></li>
+		{% endif %}
+		{% if not user.is_anonymous %}
+		<li><a href="/trivia/logout">Logout {{user}}</a></li>
+		{% endif %}
+		<li><a href="/trivia/usuarionuevo">Regístrese</a></li>
+		<li><a href="/trivia/perfilusuario">Crear Perfil</a></li>
+	</ul>
+	{% block contenido %}
+	{% endblock %}
+</body>
+</html>
