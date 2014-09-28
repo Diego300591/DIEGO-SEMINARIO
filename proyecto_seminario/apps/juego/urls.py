@@ -8,5 +8,5 @@ urlpatterns = patterns('',
     url(r'^$',pagina_principal),
     url(r'^usuarionuevo/$',registro_usuarios),
     url(r'^perfilusuario/$',crear_perfil),
-
+    url(r'^logueousuario/$',Logueo_usuario),
 )

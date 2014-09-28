@@ -12,7 +12,7 @@ class Perfil(models.Model):
 	nombres=models.CharField(max_length=50)
 	apellidos=models.CharField(max_length=50)
 	password=models.CharField(max_length=200)
-	avatar=models.ImageField(upload_to='photos')
+	#avatar=models.ImageField(upload_to='photos')
 	puntaje_total=models.PositiveIntegerField()
 	partidas=models.PositiveIntegerField()
 	def __unicode__(self):
