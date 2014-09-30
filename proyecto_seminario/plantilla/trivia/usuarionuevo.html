@@ -2,4 +2,6 @@
 {% block contenido %}
 <form action="" method="POST">{{form_usuario.as_ul}}{% csrf_token %}<input type="submit" value=".::ENVIAR::."></form>
 {{error}}
+<p>O bien</p>
+<p><a href="{% url 'socialauth_begin' 'facebook' %}" class="PrimaryLink">Loguear con Facebook</a></p>
 {% endblock %}

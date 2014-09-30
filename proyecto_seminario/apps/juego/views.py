@@ -14,6 +14,8 @@ def registro_usuarios(request):
 	usuario=UsuarioForm()
 	if request.method=="POST":
 		usuario=UsuarioForm(request.POST)
+		request.session["nick"]=request.POST["nick"]
+		request.session["password"]=request.POST["password"]
 		p=usuario.save(commit=False)
 		p.fecha=datetime.datetime.now().date()
 		if usuario.is_valid():
@@ -24,6 +26,15 @@ def registro_usuarios(request):
 	return render_to_response("trivia/usuarionuevo.html",{"error":errorMsn,"form_usuario":usuario},RequestContext(request))
 def crear_perfil(request):
 	if request.method=="POST":
+		#nick=request.session["nick"]
+		#nombres=request.POST["nombres"]
+		#apellidos=request.POST["apellidos"]
+		#clave=request.session["password"]
+		#avatar=request.session["avatar"]
+		#puntaje=request.POST["puntaje_total"]
+		#partidas=request.POST["partidas"]
+		#aux=PerfilForm({nick=nick,password=clave})
+		#perfil=PerfilForm(instance=aux)
 		perfil=PerfilForm(request.POST)
 		if perfil.is_valid():
 			perfil.save()

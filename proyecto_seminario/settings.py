@@ -38,7 +38,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'proyecto_seminario.apps.usuarios',
     'proyecto_seminario.apps.juego',
-    'social.apps.django_app.default',
+    'social_auth',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.facebook.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',  
 )
 
 MIDDLEWARE_CLASSES = (
@@ -118,3 +124,25 @@ MEDIA_ROOT = os.path.join(RUTA_PROYECTO,"media")
 #     'social.pipeline.social_auth.load_extra_data',
 #     'scial.pipeline.user.user_detalls',
 # )
+
+GOOGLE_OAUTH2_CLIENT_ID = ''
+
+GOOGLE_OAUTH2_CLIENT_SECRET = ''
+
+FACEBOOK_APP_ID = '539064209560004'
+
+FACEBOOK_API_SECRET = '0a3b9982fc38723714affd8d62409000'
+
+ACCOUNT_ACTIVATION_DAYS=7
+
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGIN_URL = '/account/login/'
+
+LOGIN_REDIRECT_URL = '/account/post_login/'
+
+
+
+
