@@ -148,8 +148,11 @@ LOGIN_URL = '/account/login/'
 
 LOGIN_REDIRECT_URL = '/account/post_login/'
 
+<<<<<<< HEAD
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
+=======
+>>>>>>> 0ba6c164108dc57261780eee9b573dcc26bbea9e
 
 
 

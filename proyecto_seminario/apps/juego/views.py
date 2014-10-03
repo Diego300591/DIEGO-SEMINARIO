@@ -38,7 +38,11 @@ def crear_perfil(request):
 		#partidas=request.POST["partidas"]
 		#aux=PerfilForm({nick=nick,password=clave})
 		#perfil=PerfilForm(instance=aux)
+<<<<<<< HEAD
 		perfil=PerfilForm(request.POST,request.FILES,)
+=======
+		perfil=PerfilForm(request.POST)
+>>>>>>> 0ba6c164108dc57261780eee9b573dcc26bbea9e
 		if perfil.is_valid():
 			perfil.save()
 			return HttpResponseRedirect("/trivia/")

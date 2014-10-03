@@ -8,7 +8,10 @@ urlpatterns = patterns('',
     url(r'^trivia/',include("proyecto_seminario.apps.juego.urls")),
     url(r'^trivia/',include("proyecto_seminario.apps.usuarios.urls")),
     url(r'^trivia/',include("social_auth.urls")),
+<<<<<<< HEAD
     url(r'^account/post_login/$',bienvenidofb),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT,}),
+=======
+>>>>>>> 0ba6c164108dc57261780eee9b573dcc26bbea9e
     #url(r'^trivia/',include("social.apps.django_app.urls",namespace='social')),
 )
