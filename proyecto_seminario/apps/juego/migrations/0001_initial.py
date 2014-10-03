@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('nombres', models.CharField(max_length=50)),
                 ('apellidos', models.CharField(max_length=50)),
                 ('password', models.CharField(max_length=200)),
-                ('avatar', models.ImageField(upload_to=b'photos')),
+                ('avatar', models.ImageField(upload_to=b'media', blank=True)),
                 ('puntaje_total', models.PositiveIntegerField()),
                 ('partidas', models.PositiveIntegerField()),
             ],

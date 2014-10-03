@@ -1,0 +1,8 @@
+{% extends "principal.html "%}
+{% block contenido %}
+<ul id="lista">
+	{%for i in dato%}
+	<li><img src='{{MEDIA_URL}}/media/{{i.avatar}}'/></li>
+	{%endfor%}
+</ul>
+{% endblock %}
