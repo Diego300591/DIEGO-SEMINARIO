@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'proyecto_seminario.apps.usuarios',
     'proyecto_seminario.apps.juego',
     'social_auth',
+    'captcha',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -148,11 +149,11 @@ LOGIN_URL = '/account/login/'
 
 LOGIN_REDIRECT_URL = '/account/post_login/'
 
-<<<<<<< HEAD
+#<<<<<<< HEAD
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
-=======
->>>>>>> 0ba6c164108dc57261780eee9b573dcc26bbea9e
+#=======
+#>>>>>>> 0ba6c164108dc57261780eee9b573dcc26bbea9e
 
 
 

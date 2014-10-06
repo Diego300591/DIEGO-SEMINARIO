@@ -5,9 +5,13 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User
+from django.views.generic.edit import CreateView
+from captcha.models import CaptchaStore
+from captcha.helpers import captcha_image_url
 from .models import *
 from .forms import *
 import datetime
+import json
 # Create your views here.
 def pagina_principal(request):
 	fecha=datetime.datetime.now()
@@ -38,11 +42,11 @@ def crear_perfil(request):
 		#partidas=request.POST["partidas"]
 		#aux=PerfilForm({nick=nick,password=clave})
 		#perfil=PerfilForm(instance=aux)
-<<<<<<< HEAD
+#<<<<<<< HEAD
 		perfil=PerfilForm(request.POST,request.FILES,)
-=======
-		perfil=PerfilForm(request.POST)
->>>>>>> 0ba6c164108dc57261780eee9b573dcc26bbea9e
+#=======
+		#perfil=PerfilForm(request.POST)
+#>>>>>>> 0ba6c164108dc57261780eee9b573dcc26bbea9e
 		if perfil.is_valid():
 			perfil.save()
 			return HttpResponseRedirect("/trivia/")
@@ -63,8 +67,33 @@ def Logueo_usuario(request):
 			errorMsn="DATOS INVALIDOS!!!"
 	logueo=Logueo() 
 	return render_to_response("trivia/logueo.html",{"error":errorMsn,"logueo":logueo},RequestContext(request))
-def bienvenidofb(request):
-	return render_to_response("bienvenidofb.html",{},RequestContext(request))
 def vista(request):
 	dato=Perfil.objects.all()
 	return render_to_response("trivia/vista.html",{"dato":dato},RequestContext(request))
+# def captcha(request):
+# 	if request.POST:
+# 		form = CaptchaTestForm(request.POST)
+# 		if form.is_valid():
+# 			human=True
+# 		else:
+# 			form=CaptchaTestForm()
+# 	return render_to_response("trivia/captcha.html",locals(),{},RequestContext(request))
+# #class CaptchaFormulario(CreateView):
+# 	#template_name=''
+# 	#form_class=CaptchaTestForm()
+# def form_invalid(self, form):
+# 	if self.request.is_ajax():
+# 		to_json_response = dict()
+# 		to_json_response['status']=0
+# 		to_json_response['form_errors']=form.errors 
+# 		to_json_response['new_cptch_key']=CaptchaStore.generate_key()
+# 		to_json_response['new_cptch_image']=captcha_image_url(to_json_response['new_cptch_key'])
+# 		return HttpResponse(json.dumps(to_json_response),content_type='application/json')
+# def form_valid(self, form):
+# 	form.save()
+# 	if self.request.is_ajax():
+# 		to_json_response = dict()
+# 		to_json_response['status']=1
+# 		to_json_response['new_cptch_key']=CaptchaStore.generate_key()
+# 		to_json_response['new_cptch_image']=captcha_image_url(to_json_response['new_cptch_key'])
+# 		return HttpResponse(json.dumps(to_json_response),content_type='application/json')

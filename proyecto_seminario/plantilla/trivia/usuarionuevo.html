@@ -1,11 +1,9 @@
 {% extends "principal.html "%}
 {% block contenido %}
+<div class="form"></div>
 <form action="" method="POST">{{form_usuario.as_ul}}{% csrf_token %}<input type="submit" value=".::ENVIAR::."></form>
+</div>
 {{error}}
 <p>O bien</p>
-<<<<<<< HEAD
 <p><a href="{% url 'socialauth_begin' 'facebook' %}" class="PrimaryLink">Registrar con la cuenta de Facebook</a></p>
-=======
-<p><a href="{% url 'socialauth_begin' 'facebook' %}" class="PrimaryLink">Loguear con Facebook</a></p>
->>>>>>> 0ba6c164108dc57261780eee9b573dcc26bbea9e
 {% endblock %}

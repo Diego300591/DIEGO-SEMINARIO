@@ -1,4 +1,7 @@
 {% extends "principal.html" %}
 {% block contenido %}
+<div class="form">
 <form action="" method="POST">{{form.as_ul}}{% csrf_token %}<input type="submit" value=".::ENVIAR::."></form>
+</div>
+<p><a href="{% url 'socialauth_begin' 'facebook' %}" class="PrimaryLink">Registrar con la cuenta de Facebook</a></p>
 {% endblock %}

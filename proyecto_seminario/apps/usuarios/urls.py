@@ -9,4 +9,6 @@ urlpatterns = patterns('',
     url(r'^login/$',logeo_usuario),
     url(r'^perfil/$',perfil),
     url(r'^logout/$',logout_usuario),
+    url(r'^activar/$',activar_usuario),
+    url(r'^error/$',error),
 )
