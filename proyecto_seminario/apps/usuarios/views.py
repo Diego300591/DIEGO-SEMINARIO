@@ -19,7 +19,7 @@ def nuevo_usuario(request):
  			usuario.is_active=False
  			usuario.save()
  			profile=perfil.objects.create(nick=usuario)
- 			return HttpResponse("FELICIDADES")
+ 			return HttpResponseRedirect("/trivia/")
  # 			return HttpResponseRedirect("/trivia/activar/")
  	else:
  		form=form_usuario()
@@ -67,7 +67,7 @@ def activar_usuario(request):
 	# form=perfilForm()
 	# return render_to_response("usuarios/activar.html",{"form":form},RequestContext(request))
 def bienvenidofb(request):
-	return HttpResponseRedirect("/trivia/")
+	return render_to_response("bienvenidofb.html",{},RequestContext(request))
 def error(request):
 	return render_to_response("usuarios/error.html",{},RequestContext(request))
 

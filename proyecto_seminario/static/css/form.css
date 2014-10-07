@@ -3,6 +3,7 @@ form {
 	border: 1px solid #ccc;
 	margin: 60px;
 	padding: 25px;
+	list-style: none;
 }
 label {
 	font-size:12px;
