@@ -1,10 +1,11 @@
 {% extends "principal.html "%}
 {% block contenido %}
-<div class="form">
+<h1><center>BIENVENIDOS!!! {{User}}</center></h1>
+<!-- <div class="form">
 	<form action="" method="POST" enctype="multipart/form-data">{{form.as_ul}}{% csrf_token %}<input type="submit" value=".::ENVIAR::."></form>
 	<!--<div class="errores">
 		{{error}}
-	</div>-->
-</div>
+	</div>
+</div> -->
 <!--<p><a href="{% url 'socialauth_begin' 'facebook' %}" class="PrimaryLink">Registrar con la cuenta de Facebook</a></p>-->
 {% endblock %}
