@@ -39,7 +39,7 @@ def logeo_usuario(request):
 		else:
 			return HttpResponseRedirect("/trivia/error/")
 	return render_to_response("usuarios/logeo_usuario.html",{"form":AuthenticationForm()},RequestContext(request))
-def perfil(request):
+def vista_perfil(request):
  	return render_to_response("usuarios/perfil.html",RequestContext(request))
 def logout_usuario(request):
  	logout(request)
@@ -53,14 +53,14 @@ def activar_usuario(request):
 			if request.method=='POST':
 				u=User.objects.get(username=usuario)
 				profile=perfil.objects.get(nick=u)
-				form=perfilForm(request.POST,request.FILES,instance=profile)
+				form=fperfil(request.POST,request.FILES,instance=profile)
 				if form.is_valid():
 					form.save()
 					u.is_active=True
 					u.save()
 					return HttpResponseRedirect("/trivia/perfil/")
 			else:
-				form=perfilForm()
+				form=fperfil()
 			return render_to_response("usuarios/activar.html",{"form":form},RequestContext(request))
 	else:
 		return HttpResponseRedirect("/trivia/login/")

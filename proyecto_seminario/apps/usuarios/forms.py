@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import  User
-class perfil(forms.ModelForm):
+class fperfil(forms.ModelForm):
 	class Meta:
 		model=perfil
 		exclude=['nick']
