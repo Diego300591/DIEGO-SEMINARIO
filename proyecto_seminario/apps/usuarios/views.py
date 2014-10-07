@@ -7,7 +7,10 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.models import User,Group
 from .models import *
 from .forms import *
+from django.forms import forms
+from captcha.fields import CaptchaField
 import datetime
+
 # Create your views here.
 def nuevo_usuario(request):
   	if request.method=="POST":
@@ -70,4 +73,10 @@ def bienvenidofb(request):
 	return render_to_response("bienvenidofb.html",{},RequestContext(request))
 def error(request):
 	return render_to_response("usuarios/error.html",{},RequestContext(request))
-
+# def petcicion(request):
+#  	if request.method=="POST":
+#  		form=CaptchaTestForm(request.POST)
+#  		if form.is_valid():
+#  			ser_humano=True
+#  	form=CaptchaTestForm()
+#  	return render_to_response("usuarios/captcha.html",locals(),{"form":form},RequestContext(request))

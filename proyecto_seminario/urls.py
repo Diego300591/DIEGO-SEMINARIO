@@ -11,5 +11,4 @@ urlpatterns = patterns('',
     url(r'^account/post_login/$',bienvenidofb),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT,}),
     url(r'^captcha/$',include("captcha.urls")),
-
 )

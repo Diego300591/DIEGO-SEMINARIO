@@ -4,6 +4,7 @@ from django.forms import ModelForm
 from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import  User
+# from captcha.fields import CaptchaField
 class fperfil(forms.ModelForm):
 	class Meta:
 		model=perfil
@@ -25,3 +26,7 @@ class form_usuario(UserCreationForm):
 			user.save()
 		return user
 
+# class CaptchaTestForm(forms.Form):
+# 	captcha=CaptchaField()
+# 	class Meta:
+# 		model=MyModel
