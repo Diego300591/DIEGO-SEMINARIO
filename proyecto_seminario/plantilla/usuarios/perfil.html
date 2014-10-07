@@ -2,11 +2,11 @@
 {% block contenido %}
 <h1><center>BIENVENIDOS!!! {{User}}</center></h1>
 <h1><center>DATOS PERSONALES</center></CENTER></h1>
-<TABLE ALIGN="center" >
+<TABLE ALIGN="center" WIDTH="500">
 	<TR>
 		<TD>NICK</TD>
 		<TD>{{user.perfil.nick}}</TD>
-		<TD ROWSPAN=5><img src="/media/{{user.perfil.avatar}}" alt="avatar" width="130" height="140" title="{{user.perfil.nick}}"></TD>
+		<TD ROWSPAN=5 ALIGN="center"><img src="/media/{{user.perfil.avatar}}" alt="avatar" width="200" height="190" title="{{user.perfil.nick}}"></TD>
 	</TR>
 	<TR>
 		<TD>NOMBRES</TD>
