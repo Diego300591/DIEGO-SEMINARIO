@@ -10,6 +10,7 @@
 	<link href="/static/css/lista.css" type="text/css" rel="stylesheet">
 	<link href="/static/css/perfil.css" type="text/css" rel="stylesheet">
 	<link href="/static/css/body.css" type="text/css" rel="stylesheet">
+	<link href="/static/css/facebook.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<ul class="menu">
@@ -25,9 +26,9 @@
 		<li><a href="/trivia/perfilusuario/">Crear Perfil</a></li>
 		<li><a href="/trivia/logueousuario/">Loguear Usuario</a></li>-->
 	</ul>
-	<h1><center>BIENVENIDOS A LA TRIVIA</center></h1>
+	<h1><center>{% block encabezado %}BIENVENIDOS A LA TRIVIA{% endblock encabezado %}</center></h1>
 	{% block contenido %}
-	{% endblock %}
+	{% endblock contenido %}
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

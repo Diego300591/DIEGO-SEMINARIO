@@ -1,5 +1,6 @@
 {% extends "principal.html" %}
 {% block title %}NUEVO USUARIO{% endblock title %}
+{% block encabezado %}NUEVO USUARIO{% endblock encabezado %}
 {% block contenido %}
 <div class="form">
 <form action="" method="POST">{{form.as_ul}}{% csrf_token %}<input type="submit" value=".::ENVIAR::."></form>
