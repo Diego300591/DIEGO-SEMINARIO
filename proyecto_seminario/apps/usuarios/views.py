@@ -12,6 +12,9 @@ from captcha.fields import CaptchaField
 import datetime
 
 # Create your views here.
+def pagina_principal(request):
+	fecha=datetime.datetime.now()
+	return render_to_response("principal.html",{"fecha":fecha},RequestContext(request))
 def nuevo_usuario(request):
   	if request.method=="POST":
   		form=form_usuario(request.POST)
@@ -70,6 +73,7 @@ def activar_usuario(request):
 	# form=perfilForm()
 	# return render_to_response("usuarios/activar.html",{"form":form},RequestContext(request))
 def bienvenidofb(request):
+	return HttpResponseRedirect("/trivia/")
 	return render_to_response("bienvenidofb.html",{},RequestContext(request))
 def error(request):
 	return render_to_response("usuarios/error.html",{},RequestContext(request))

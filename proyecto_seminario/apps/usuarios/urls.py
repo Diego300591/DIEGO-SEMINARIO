@@ -6,6 +6,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'proyecto_seminario.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+    url(r'^$',pagina_principal),
     url(r'^nuevousuario/$',nuevo_usuario),
     url(r'^login/$',logeo_usuario),
     url(r'^perfil/$',vista_perfil),
