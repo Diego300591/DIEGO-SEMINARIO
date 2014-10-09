@@ -1,0 +1,12 @@
+{% extends "principal.html" %}
+{% block title %}CREAR PREGUNTA{% endblock title %}
+{% block encabezado %}CREAR PREGUNTA{% endblock encabezado %}
+{% block contenido %}
+DKDKDKDKDKDKDKDKDKDKDKDKDKDKDKDKDKDK
+<div class="form">
+	<form action="" method="POST">{{fpregunta.as_ul}}{% csrf_token %}<input type="submit" value=".::ENVIAR::."></form>
+	<!--<div class="errores">
+		{{error}}
+	</div>-->
+</div>
+{% endblock %}

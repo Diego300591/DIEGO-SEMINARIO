@@ -13,9 +13,6 @@ from .forms import *
 import datetime
 import json
 # Create your views here.
-def pagina_principal(request):
-	fecha=datetime.datetime.now()
-	return render_to_response("principal.html",{"fecha":fecha},RequestContext(request))
 def registro_usuarios(request):
 	errorMsn=""
 	usuario=UsuarioForm()

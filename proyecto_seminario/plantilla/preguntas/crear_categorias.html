@@ -1,0 +1,11 @@
+{% extends "principal.html" %}
+{% block title %}CREAR CATEGORIA{% endblock title %}
+{% block encabezado %}CREAR CATEGORIA{% endblock encabezado %}
+{% block contenido %}
+<div class="form">
+	<form action="" method="POST">{{fcategoria.as_ul}}{% csrf_token %}<input type="submit" value=".::ENVIAR::."></form>
+	<!--<div class="errores">
+		{{error}}
+	</div>-->
+</div>
+{% endblock %}
