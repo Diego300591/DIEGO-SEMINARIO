@@ -77,10 +77,10 @@ def bienvenidofb(request):
 	return render_to_response("bienvenidofb.html",{},RequestContext(request))
 def error(request):
 	return render_to_response("usuarios/error.html",{},RequestContext(request))
-# def petcicion(request):
-#  	if request.method=="POST":
-#  		form=CaptchaTestForm(request.POST)
-#  		if form.is_valid():
-#  			ser_humano=True
-#  	form=CaptchaTestForm()
-#  	return render_to_response("usuarios/captcha.html",locals(),{"form":form},RequestContext(request))
+def peticion(request):
+  	if request.method=="POST":
+  		form=CaptchaTestForm(request.POST)
+  		if form.is_valid():
+  			ser_humano=True
+  	form=CaptchaTestForm()
+  	return render_to_response("usuarios/captcha.html",locals(),{"form":form},RequestContext(request))
