@@ -9,6 +9,5 @@ class perfil(models.Model):
  	avatar=models.ImageField(upload_to='media',null=True,verbose_name='Imagen')
  	puntaje_total=models.PositiveIntegerField(default=0)
  	partidas_jugadas=models.PositiveIntegerField(default=0)
-
-
-
+ 	class Meta:
+ 		permissions=(("ver_perfil","permite ver el perfil"),("cambiar_perfil","permite modificar el perfil"),)

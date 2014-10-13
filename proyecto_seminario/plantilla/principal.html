@@ -22,10 +22,11 @@
 		{% endif %}
 		{% if not user.is_anonymous %}
 		<li><a href="/trivia/logout">Logout {{user}}</a></li>
-				<li><a href="/trivia/perfil/">Ver perfil {{user}}</a></li>
+		<li><a href="/trivia/perfil/">Ver perfil {{user}}</a></li>
+		{%for item in menu%}
+			<li><a href="{{item.url}}">{{item.label}}</a></li>
+		{%endfor%}
 		{% endif %}
-		<li><a href="/preguntas/crearcategorias/">Nueva Categoria</a></li>
-		<li><a href="/preguntas/crearpreguntas/">Nueva Pregunta</a></li>
 		<!--<li><a href="/trivia/usuarionuevo/">Regístrese</a></li>
 		<li><a href="/trivia/perfilusuario/">Crear Perfil</a></li>
 		<li><a href="/trivia/logueousuario/">Loguear Usuario</a></li>-->

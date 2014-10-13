@@ -1,0 +1,16 @@
+{% extends "principal.html" %}
+{% block title %}LISTA DE PREGUNTAS{% endblock title %}
+{% block encabezado %}LISTA DE PREGUNTAS{% endblock encabezado %}
+{% block contenido %}
+{% for i in lista %}
+{{i.id}}.-{{i.enunciado}}
+<ol id="lista">
+		<li>{{i.respuesta1}}</li>
+		<li>{{i.respuesta2}}</li>
+		<li>{{i.respuesta3}}</li>
+		<li>{{i.respuesta4}}</li>
+</ol>	
+RESPUESTA: {{i.respuesta_correcta}}
+<br><br>
+{% endfor %}
+{% endblock %}
