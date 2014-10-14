@@ -21,7 +21,7 @@ def crear_pregunta(request):
 		return HttpResponseRedirect("/preguntas/pregrestringida/")
 	if request.method=="POST":
 		fpregunta=preguntaForm(request.POST)
-		if fpregunta.is_val+id():
+		if fpregunta.is_valid():
 			fpregunta.save()
 	fpregunta=preguntaForm()
 	return render_to_response("preguntas/crear_pregunta.html",{"fpregunta":fpregunta},RequestContext(request))

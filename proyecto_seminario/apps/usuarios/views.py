@@ -8,7 +8,8 @@ from django.contrib.auth.models import User,Group,Permission
 from .models import *
 from .forms import *
 from django.forms import forms
-from captcha.fields import CaptchaField
+from recaptcha.client import captcha
+# from captcha.fields import CaptchaField
 import datetime
 import pdb
 # Create your views here.
@@ -103,3 +104,22 @@ def permisos(request):
 	if usuario.has_perm("preguntas.ver_categoria"):
 		listadepermisos.append({"url":"/preguntas/vercategorias/","label":"ver categorias"})
 	return listadepermisos
+
+def myview(request):
+	if request.method == "POST":
+		edit_form = EditForm(request.POST)
+		response = captcha.submit(
+			request.POST.get('recaptcha_challenge_field'),
+			request.POST.get('recaptcha_response_field'),
+			'[[ MY PRIVATE KEY ]]',
+			request.META['REMOTE_ADDR'],)
+		if response.is_valid:
+			captcha_response = "YOU ARE HUMAN: %(data)s" % {'data':edit_form.data['data_field']}
+		else:
+			captcha_response = 'YOU MUST BE A ROBOT'
+		return render_to_response("usuarios/captcha.html",{"edit_form":edit_form, 'captcha_response':captcha_response})
+	else:
+		edit_form=EditForm()
+		return render_to_response("usuarios/captcha.html",{"edit_form":edit_form})
+
+

@@ -29,6 +29,8 @@ class form_usuario(UserCreationForm):
 		if commit:
 			user.save()
 		return user
+class EditForm(forms.Form):
+	data_field=forms.CharField()
 # class CaptchaTestForm(forms.Form):
 #  	captcha=CaptchaField()
 #  	class Meta:

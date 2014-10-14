@@ -13,6 +13,6 @@ urlpatterns = patterns('',
     url(r'^logout/$',logout_usuario),
     url(r'^activar/$',activar_usuario),
     url(r'^error/$',error),
-    #url(r'^captchas/$',peticion),
+    url(r'^captchas/$',myview),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT,}),
 )

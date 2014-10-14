@@ -1,6 +1,24 @@
 {% extends "principal.html "%}
 {% block contenido %}
-<div class="form">
-	<form action="" method="POST" enctype="multipart/form-data">{{form.as_ul}}{% csrf_token %}<input type="submit" value=".::ENVIAR::."/><button class="js-captcha-refresh"></button></form>
-</div>
+<form action="#" method="POST">
+<table>
+	{{ edit_form }}
+	<tr>
+		<th>¿Eres Humano?</th>
+		<td>
+			<span class="validation_error">{{ captcha_response }}</span>
+			<script type="text/javascript" src="http://api.recaptcha.net/challenge?k=[[ YOUR PUBLIC KEY ]]"></script>
+			<noscript>
+			<iframe src="http://api.recaptcha.net/noscrpit?k=[[ YOUR PUBLIC KEY ]]" height="300" width="500" frameborder="0"></iframe><br>
+			<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+			<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+			</noscript>
+		</td>
+	</tr>
+	<tr>
+		<th></th>
+		<td><input type="submit" value="Save"/></td>
+	</tr>
+</table>	
+</form>
 {% endblock %}
