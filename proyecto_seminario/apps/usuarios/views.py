@@ -100,4 +100,6 @@ def permisos(request):
 		listadepermisos.append({"url":"/preguntas/crearpreguntas/","label":"agregar preguntas"})
 	if usuario.has_perm("preguntas.mostrar_preguntas"):
 		listadepermisos.append({"url":"/preguntas/verpreguntas/","label":"ver preguntas"})
+	if usuario.has_perm("preguntas.ver_categoria"):
+		listadepermisos.append({"url":"/preguntas/vercategorias/","label":"ver categorias"})
 	return listadepermisos

@@ -1,0 +1,10 @@
+{% extends "principal.html" %}
+{% block title %}LISTA DE CATEGORIAS{% endblock title %}
+{% block encabezado %}LISTA DE CATEGORIAS{% endblock encabezado %}
+{% block contenido %}
+<ul id="categorias">
+{% for i in lista %}
+<li>{{i.nombre}}</li>
+{% endfor %}
+</ul>
+{% endblock %}

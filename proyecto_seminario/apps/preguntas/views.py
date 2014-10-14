@@ -32,3 +32,6 @@ def categoria_restringida(request):
 	return render_to_response("preguntas/catrestringida.html",{},RequestContext(request))
 def pregunta_restringida(request):
 	return render_to_response("preguntas/pregrestringida.html",{},RequestContext(request))
+def ver_categoria(request):
+	lista=categorias.objects.all()
+	return render_to_response("preguntas/vercategorias.html",{"lista":lista},RequestContext(request))

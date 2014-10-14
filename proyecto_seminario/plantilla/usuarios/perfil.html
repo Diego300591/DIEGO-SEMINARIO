@@ -1,6 +1,11 @@
 {% extends "principal.html "%}
 {% block title %}PERFIL {{user.perfil.nick}}{% endblock title %}
 {% block encabezado %}BIENVENIDOS!!! {{user}}{% endblock encabezado %}
+{% block aux %}
+{%for item in menu%}
+			<li><a href="{{item.url}}">{{item.label}}</a></li>
+		{%endfor%}
+{% endblock aux %}
 {% block contenido %}
 <h1><center>DATOS PERSONALES</center></CENTER></h1>
 <TABLE ALIGN="center" WIDTH="500">

@@ -23,9 +23,11 @@
 		{% if not user.is_anonymous %}
 		<li><a href="/trivia/logout">Logout {{user}}</a></li>
 		<li><a href="/trivia/perfil/">Ver perfil {{user}}</a></li>
+		{% block aux %}
 		{%for item in menu%}
 			<li><a href="{{item.url}}">{{item.label}}</a></li>
 		{%endfor%}
+		{% endblock aux %}
 		{% endif %}
 		<!--<li><a href="/trivia/usuarionuevo/">Regístrese</a></li>
 		<li><a href="/trivia/perfilusuario/">Crear Perfil</a></li>

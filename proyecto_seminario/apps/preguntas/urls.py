@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^crearcategorias/$',crear_categoria),
     url(r'^crearpreguntas/$',crear_pregunta),
     url(r'^verpreguntas/$',ver_preguntas),
+    url(r'^vercategorias/$',ver_categoria),
     url(r'^catrestringida/$',categoria_restringida),
     url(r'^pregrestringida/$',pregunta_restringida),
 )
