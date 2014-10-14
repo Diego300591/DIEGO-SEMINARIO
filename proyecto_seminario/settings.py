@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'proyecto_seminario.apps.preguntas',
     'social_auth',
     'captcha',
+    'recaptcha.client',
 )
 
 AUTHENTICATION_BACKENDS = (

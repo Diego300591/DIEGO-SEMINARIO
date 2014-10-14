@@ -111,15 +111,15 @@ def myview(request):
 		response = captcha.submit(
 			request.POST.get('recaptcha_challenge_field'),
 			request.POST.get('recaptcha_response_field'),
-			'[[ MY PRIVATE KEY ]]',
+			'6LdRDfwSAAAAAA5J38RyDQyHw2oWxwQgkXORu759 ',
 			request.META['REMOTE_ADDR'],)
 		if response.is_valid:
 			captcha_response = "YOU ARE HUMAN: %(data)s" % {'data':edit_form.data['data_field']}
 		else:
 			captcha_response = 'YOU MUST BE A ROBOT'
-		return render_to_response("usuarios/captcha.html",{"edit_form":edit_form, 'captcha_response':captcha_response})
+		return render_to_response("usuarios/captcha.html",{'edit_form':edit_form, 'captcha_response':captcha_response},RequestContext(request))
 	else:
 		edit_form=EditForm()
-		return render_to_response("usuarios/captcha.html",{"edit_form":edit_form})
+		return render_to_response("usuarios/captcha.html",{"edit_form":edit_form},RequestContext(request))
 
 
