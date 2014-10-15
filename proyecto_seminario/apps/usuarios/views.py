@@ -114,9 +114,9 @@ def myview(request):
 			'6LdRDfwSAAAAAA5J38RyDQyHw2oWxwQgkXORu759 ',
 			request.META['REMOTE_ADDR'],)
 		if response.is_valid:
-			captcha_response = "YOU ARE HUMAN: %(data)s" % {'data':edit_form.data['data_field']}
+			captcha_response = "ERES HUMANO: %(data)s" % {'data':edit_form.data['nombre']}
 		else:
-			captcha_response = 'YOU MUST BE A ROBOT'
+			captcha_response = 'DEBES SER UN ROBOT'
 		return render_to_response("usuarios/captcha2.html",{'edit_form':edit_form, 'captcha_response':captcha_response},RequestContext(request))
 	else:
 		edit_form=EditForm()
