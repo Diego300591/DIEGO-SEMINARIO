@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CAPTCHAS</title>
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/css/form1.css" type="text/css" rel="stylesheet">
+	<link href="/static/css/lista.css" type="text/css" rel="stylesheet">
+	<!--<link href="/static/css/perfil.css" type="text/css" rel="stylesheet">-->
+	<link href="/static/css/body.css" type="text/css" rel="stylesheet">
+	<link href="/static/css/facebook.css" type="text/css" rel="stylesheet">
+	<link href="/static/css/textarea.css" type="text/css" rel="stylesheet">
+	<link href="/static/css/captchas.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<ul class="menu">
+		<li><a href="/trivia/">Principal</a></li>
+		<li><a href="/trivia/nuevousuario/">Nuevo Usuario</a></li>
+		{% if user.is_anonymous %}
+		<li><a href="/trivia/login">Login</a></li>
+		{% endif %}
+		{% if not user.is_anonymous %}
+		<li><a href="/trivia/logout">Logout {{user}}</a></li>
+		<li><a href="/trivia/perfil/">Ver perfil {{user}}</a></li>
+		{% block aux %}
+		{%for item in menu%}
+			<li><a href="{{item.url}}">{{item.label}}</a></li>
+		{%endfor%}
+		{% endblock aux %}
+		{% endif %}
+		<!--<li><a href="/trivia/usuarionuevo/">Regístrese</a></li>
+		<li><a href="/trivia/perfilusuario/">Crear Perfil</a></li>
+		<li><a href="/trivia/logueousuario/">Loguear Usuario</a></li>-->
+	</ul>
+	<h1><center>{% block encabezado %}BIENVENIDOS A LA TRIVIA{% endblock encabezado %}</center></h1>
+	<form action="#" method="POST">
+<table>
+	{{ edit_form }}	
+	<tr>
+		<th>¿Eres Humano?</th>
+		<td>
+			<span class="validation_error">{{ captcha_response }}</span>
+			<script type="text/javascript" src="http://api.recaptcha.net/challenge?k=6LdRDfwSAAAAAAUcIk5aNa0S6YdZme4o3oyueZOz "></script>
+			<noscript>
+			<iframe src="http://api.recaptcha.net/noscrpit?k=6LdRDfwSAAAAAAUcIk5aNa0S6YdZme4o3oyueZOz " height="300" width="500" frameborder="0"></iframe><br>
+			<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+			<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+			</noscript>
+		</td>
+	</tr>
+	<tr>
+		<th></th>
+		<td><input type="submit" value="ENVIAR"/></td>
+	</tr>
+</table>	
+{% csrf_token %}
+</form>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/static/js/bootstrap.min.js"></script>
+</body>
+</html>

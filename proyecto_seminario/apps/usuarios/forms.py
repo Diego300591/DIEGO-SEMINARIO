@@ -30,7 +30,7 @@ class form_usuario(UserCreationForm):
 			user.save()
 		return user
 class EditForm(forms.Form):
-	data_field=forms.CharField()
+	nombre=forms.CharField()
 # class CaptchaTestForm(forms.Form):
 #  	captcha=CaptchaField()
 #  	class Meta:

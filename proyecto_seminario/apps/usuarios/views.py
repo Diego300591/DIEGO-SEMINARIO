@@ -117,9 +117,9 @@ def myview(request):
 			captcha_response = "YOU ARE HUMAN: %(data)s" % {'data':edit_form.data['data_field']}
 		else:
 			captcha_response = 'YOU MUST BE A ROBOT'
-		return render_to_response("usuarios/captcha.html",{'edit_form':edit_form, 'captcha_response':captcha_response},RequestContext(request))
+		return render_to_response("usuarios/captcha2.html",{'edit_form':edit_form, 'captcha_response':captcha_response},RequestContext(request))
 	else:
 		edit_form=EditForm()
-		return render_to_response("usuarios/captcha.html",{"edit_form":edit_form},RequestContext(request))
+		return render_to_response("usuarios/captcha2.html",{"edit_form":edit_form},RequestContext(request))
 
 

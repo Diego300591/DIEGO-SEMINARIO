@@ -1,13 +1,12 @@
 def logeo_usuario(request):
+	menu=permisos(request)
 	veces=0
 	fracaso=0
 	while veces<3:
-		menu=permisos(request)
 		if request.method=="POST":
 			username=request.POST["username"]
 			password=request.POST["password"]
 			resultado=authenticate(username=username,password=password)
-			pdb.set_trace()
 			if resultado is not None:
 				if resultado.is_active:
 					login(request,resultado)	
@@ -17,6 +16,7 @@ def logeo_usuario(request):
 					return HttpResponseRedirect("/trivia/activar/")
 			else:
 				fracaso=fracaso+1
+			#return HttpResponseRedirect("/trivia/error/")
 		veces=veces+1
 	if fracaso==3:
 		return HttpResponseRedirect("/trivia/error/")
