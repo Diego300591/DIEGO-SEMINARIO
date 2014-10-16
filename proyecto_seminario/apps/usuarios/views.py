@@ -51,7 +51,6 @@ def logeo_usuario(request):
 		else:
 			if request.session['contador']<3:
 				request.session['contador']=request.session['contador']+1
-				return HttpResponseRedirect("/trivia/login/")
 			else:
 				return HttpResponseRedirect("/trivia/error/")
 	return render_to_response("usuarios/logeo_usuario.html",{"form":AuthenticationForm(), "menu":menu},RequestContext(request))
