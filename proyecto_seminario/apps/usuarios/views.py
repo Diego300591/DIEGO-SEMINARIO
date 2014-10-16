@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
 from django.contrib.auth import login,logout,authenticate
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.models import User,Group,Permission
+from django.contrib.sessions.models import Session
 from .models import *
 from .forms import *
 from django.forms import forms
@@ -35,6 +36,7 @@ def nuevo_usuario(request):
 	return render_to_response("usuarios/nuevo_usuario.html",{"form":form, "menu":menu},RequestContext(request))
 def logeo_usuario(request):
 	menu=permisos(request)
+	request.session['contador']=0
 	if request.method=="POST":
 		username=request.POST["username"]
 		password=request.POST["password"]
@@ -47,7 +49,11 @@ def logeo_usuario(request):
 				login(request, resultado)
 				return HttpResponseRedirect("/trivia/activar/")
 		else:
-			return HttpResponseRedirect("/trivia/error/")
+			if request.session['contador']<3:
+				request.session['contador']=request.session['contador']+1
+				return HttpResponseRedirect("/trivia/login/")
+			else:
+				return HttpResponseRedirect("/trivia/error/")
 	return render_to_response("usuarios/logeo_usuario.html",{"form":AuthenticationForm(), "menu":menu},RequestContext(request))
 def vista_perfil(request):
 	menu=permisos(request)
