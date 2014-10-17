@@ -1,0 +1,23 @@
+def logeo_usuario(request):
+	menu=permisos(request)
+	veces=0
+	fracaso=0
+	while veces<3:
+		if request.method=="POST":
+			username=request.POST["username"]
+			password=request.POST["password"]
+			resultado=authenticate(username=username,password=password)
+			if resultado is not None:
+				if resultado.is_active:
+					login(request,resultado)	
+					return HttpResponseRedirect("/trivia/perfil/")	
+				else:
+					login(request, resultado)
+					return HttpResponseRedirect("/trivia/activar/")
+			else:
+				fracaso=fracaso+1
+			#return HttpResponseRedirect("/trivia/error/")
+		veces=veces+1
+	if fracaso==3:
+		return HttpResponseRedirect("/trivia/error/")
+	return render_to_response("usuarios/logeo_usuario.html",{"form":AuthenticationForm(), "menu":menu},RequestContext(request))
