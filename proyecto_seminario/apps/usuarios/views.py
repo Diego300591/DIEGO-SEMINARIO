@@ -36,24 +36,34 @@ def nuevo_usuario(request):
 	return render_to_response("usuarios/nuevo_usuario.html",{"form":form, "menu":menu},RequestContext(request))
 def logeo_usuario(request):
 	menu=permisos(request)
-	request.session['contador']=0
 	if request.method=="POST":
-		username=request.POST["username"]
-		password=request.POST["password"]
-		resultado=authenticate(username=username,password=password)
-		if resultado is not None:
-			if resultado.is_active:
-				login(request,resultado)	
-				return HttpResponseRedirect("/trivia/perfil/")	
+		form=AuthenticationForm(request.POST)
+		if form.is_valid:
+			username=request.POST["username"]
+			password=request.POST["password"]
+			resultado=authenticate(username=username,password=password)
+			if resultado is not None:
+				if resultado.is_active:
+					login(request,resultado)	
+					del request.session['cont']
+					return HttpResponseRedirect("/trivia/perfil/")	
+				else:
+					login(request, resultado)
+					return HttpResponseRedirect("/trivia/activar/")
 			else:
-				login(request, resultado)
-				return HttpResponseRedirect("/trivia/activar/")
-		else:
-			if request.session['contador']<3:
-				request.session['contador']=request.session['contador']+1
-			else:
-				return HttpResponseRedirect("/trivia/error/")
-	return render_to_response("usuarios/logeo_usuario.html",{"form":AuthenticationForm(), "menu":menu},RequestContext(request))
+				request.session['cont']=request.session['cont']+1
+				aux=request.session['cont']
+				if aux>3:
+					return HttpResponseRedirect("/trivia/captchas")
+				estado=True
+				mensaje="Error en los datos "+str(aux)
+				datos={'form':form,'estado':estado,'mensaje':mensaje}
+				return render_to_response("usuarios/logeo_usuario.html",datos,RequestContext(request))
+			#return HttpResponseRedirect("/trivia/error/")
+	else:
+		request.session['cont']=0
+		form=AuthenticationForm()
+	return render_to_response("usuarios/logeo_usuario.html",{"form":form, "menu":menu},RequestContext(request))
 def vista_perfil(request):
 	menu=permisos(request)
  	return render_to_response("usuarios/perfil.html",{"menu":menu},RequestContext(request))
@@ -119,7 +129,8 @@ def myview(request):
 			'6LdRDfwSAAAAAA5J38RyDQyHw2oWxwQgkXORu759 ',
 			request.META['REMOTE_ADDR'],)
 		if response.is_valid:
-			captcha_response = "ERES HUMANO: %(data)s" % {'data':edit_form.data['nombre']}
+			#captcha_response = "ERES HUMANO: %(data)s" % {'data':edit_form.data['nombre']}
+			return HttpResponseRedirect("/trivia/")
 		else:
 			captcha_response = 'DEBES SER UN ROBOT'
 		return render_to_response("usuarios/captcha2.html",{'edit_form':edit_form, 'captcha_response':captcha_response},RequestContext(request))
