@@ -13,5 +13,7 @@ urlpatterns = patterns('',
     url(r'^catrestringida/$',categoria_restringida),
     url(r'^pregrestringida/$',pregunta_restringida),
     url(r'^controlpreguntas/$',control_preguntas),
-    url(r'^modificar/(?P<id>\d+)/$',modificar_pregunta),
+    url(r'^detallespreguntas/$',detalle_pregunta),
+    url(r'^modificar/(?P<id>\d+)/$',modificar_pregunta,name='modificar_pregunta'),
+    url(r'^verdetallepregunta/(?P<id>\d+)/$',ver_detalles,name='ver_detalles'),
 )

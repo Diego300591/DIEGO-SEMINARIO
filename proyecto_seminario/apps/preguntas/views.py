@@ -45,5 +45,12 @@ def modificar_pregunta(request,id):
 		if fpregunta.is_valid():
 			fpregunta.save()
 			return HttpResponse("Pregunta modificada exitosamente")
-	fpregunta=preguntaForm(instance=id)
-	return render_to_response("preguntas/modificar.html",{"form":form},RequestContext(request))
+	else:
+		fpregunta=preguntaForm(instance=id)
+	return render_to_response("preguntas/modificar.html",{"fpregunta":fpregunta},RequestContext(request))
+def detalle_pregunta(request):
+	lista=mpregunta.objects.all()
+	return render_to_response("preguntas/detalles_pregunta.html",{"lista":lista},RequestContext(request))
+def ver_detalles(request,id):
+	pregunta=get_object_or_404(mpregunta,pk=id)
+	return render_to_response("preguntas/verdetalles.html",{"pregunta":pregunta},RequestContext(request))

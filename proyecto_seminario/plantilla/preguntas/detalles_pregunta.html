@@ -1,0 +1,10 @@
+{% extends "principal.html" %}
+{% block title %}DETALLES DE PREGUNTAS{% endblock title %}
+{% block encabezado %}DETALLES DE PREGUNTAS{% endblock encabezado %}
+{% block contenido %}
+<ol>
+	{% for i in lista %}
+	<li><a href="/preguntas/verdetallepregunta/{{i.id}}">{{i.enunciado}}</a></li>
+	{% endfor %}
+</ol>
+{% endblock %}
