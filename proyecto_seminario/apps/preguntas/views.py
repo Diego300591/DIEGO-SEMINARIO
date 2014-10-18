@@ -41,12 +41,12 @@ def control_preguntas(request):
 def modificar_pregunta(request,id):
 	pregunta=get_object_or_404(mpregunta,pk=id)
 	if request.method=="POST":
-		fpregunta=preguntaForm(request.POST,instance=id)
+		fpregunta=preguntaForm(request.POST,instance=pregunta)
 		if fpregunta.is_valid():
 			fpregunta.save()
 			return HttpResponse("Pregunta modificada exitosamente")
 	else:
-		fpregunta=preguntaForm(instance=id)
+		fpregunta=preguntaForm(instance=pregunta)
 	return render_to_response("preguntas/modificar.html",{"fpregunta":fpregunta},RequestContext(request))
 def detalle_pregunta(request):
 	lista=mpregunta.objects.all()
