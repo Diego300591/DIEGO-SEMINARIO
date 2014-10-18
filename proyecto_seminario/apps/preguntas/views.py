@@ -1,4 +1,4 @@
-from django.shortcuts import render,render_to_response
+from django.shortcuts import render,render_to_response,get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import *
@@ -35,3 +35,15 @@ def pregunta_restringida(request):
 def ver_categoria(request):
 	lista=categorias.objects.all()
 	return render_to_response("preguntas/vercategorias.html",{"lista":lista},RequestContext(request))
+def control_preguntas(request):
+	lista=mpregunta.objects.all()
+	return render_to_response("preguntas/control_preguntas.html",{"lista":lista},RequestContext(request))
+def modificar_pregunta(request,id):
+	pregunta=get_object_or_404(mpregunta,pk=id)
+	if request.method=="POST":
+		fpregunta=preguntaForm(request.POST,instance=id)
+		if fpregunta.is_valid():
+			fpregunta.save()
+			return HttpResponse("Pregunta modificada exitosamente")
+	fpregunta=preguntaForm(instance=id)
+	return render_to_response("preguntas/modificar.html",{"form":form},RequestContext(request))

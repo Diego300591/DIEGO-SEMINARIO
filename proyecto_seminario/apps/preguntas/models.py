@@ -16,6 +16,8 @@ class mpregunta(models.Model):
 	respuesta3=models.CharField(max_length=200)
 	respuesta4=models.CharField(max_length=200)
 	respuesta_correcta=models.CharField(max_length=200)
+	def __unicode__(self):
+		return self.enunciado
 	class Meta():
 		permissions=(
 			("mostrar_preguntas","permite ver las preguntas"),

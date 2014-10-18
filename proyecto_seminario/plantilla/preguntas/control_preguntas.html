@@ -1,0 +1,10 @@
+{% extends "principal.html" %}
+{% block title %}CONTROL DE PREGUNTAS{% endblock title %}
+{% block encabezado %}CONTROL DE PREGUNTAS{% endblock encabezado %}
+{% block contenido %}
+<ol>
+	{% for i in lista %}
+	<li><a href="/preguntas/modificar/{{i.id}}">{{i.enunciado}}</a></li>
+	{% endfor %}
+</ol>
+{% endblock %}
