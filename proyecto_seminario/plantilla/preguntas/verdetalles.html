@@ -3,4 +3,13 @@
 {% block encabezado %}VER DETALLES DE UNA PREGUNTA{% endblock encabezado %}
 {% block contenido %}
 <H2>{{pregunta.enunciado}} </H2>
+<H2>
+	<ol>
+		<li>{{pregunta.respuesta1}}</li>
+		<li>{{pregunta.respuesta2}}</li>
+		<li>{{pregunta.respuesta3}}</li>
+		<li>{{pregunta.respuesta4}}</li>
+	</ol>
+	RESPUESTA: {{pregunta.respuesta_correcta}}
+</H2>
 {% endblock %}
