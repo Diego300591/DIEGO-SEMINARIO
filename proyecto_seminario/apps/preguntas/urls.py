@@ -16,4 +16,6 @@ urlpatterns = patterns('',
     url(r'^detallespreguntas/$',detalle_pregunta),
     url(r'^modificar/(?P<id>\d+)/$',modificar_pregunta,name='modificar_pregunta'),
     url(r'^verdetallepregunta/(?P<id>\d+)/$',ver_detalles,name='ver_detalles'),
+    url(r'^eliminarpregunta/(?P<id>\d+)/$',eliminar_pregunta,name='eliminar_pregunta'),
+    url(r'^preguntaseliminar/$',lista_preguntas_eliminar),
 )

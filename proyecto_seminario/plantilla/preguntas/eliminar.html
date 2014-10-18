@@ -1,0 +1,10 @@
+{% extends "principal.html" %}
+{% block title %}ELIMINAR PREGUNTAS{% endblock title %}
+{% block encabezado %}ELIMINAR UNA PREGUNTA CUALQUIERA{% endblock encabezado %}
+{% block contenido %}
+<ol>
+	{% for i in lista %}
+	<li><a href="/preguntas/eliminarpregunta/{{i.id}}">{{i.enunciado}}</a></li>
+	{% endfor %}
+</ol>
+{% endblock %}

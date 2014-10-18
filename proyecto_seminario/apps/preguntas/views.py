@@ -54,3 +54,11 @@ def detalle_pregunta(request):
 def ver_detalles(request,id):
 	pregunta=get_object_or_404(mpregunta,pk=id)
 	return render_to_response("preguntas/verdetalles.html",{"pregunta":pregunta},RequestContext(request))
+def eliminar_pregunta(request,id):
+	aux=mpregunta.objects.get(pk=id)
+	borrar=aux.delete()
+	return HttpResponseRedirect("/preguntas/preguntaseliminar/")
+def lista_preguntas_eliminar(request):
+	lista=mpregunta.objects.all()
+	return render_to_response("preguntas/eliminar.html",{"lista":lista},RequestContext(request))
+
