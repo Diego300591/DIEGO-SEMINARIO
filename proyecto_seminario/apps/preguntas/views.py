@@ -1,6 +1,9 @@
 from django.shortcuts import render,render_to_response,get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.sessions.models import Session
+from django.contrib.auth import login,logout,authenticate
+from django.contrib.auth.models import User
 from .forms import *
 from .models import *
 import pdb
@@ -62,10 +65,10 @@ def lista_preguntas_eliminar(request):
 	lista=mpregunta.objects.all()
 	return render_to_response("preguntas/eliminar.html",{"lista":lista},RequestContext(request))
 def crear_partida(request):
-	if request.method=="POST":
+	if (request.method=="POST"):
 		form=partidaForm(request.POST)
-		user=User.objects.get(username=request.session["name"])
-		if (form.is_valid()):
+		user=User.objects.get(username=request.session["username"])
+		if(form.is_valid()):
 			obj=form.save(commit=False)
 			obj.usuario=user
 			obj.save()
