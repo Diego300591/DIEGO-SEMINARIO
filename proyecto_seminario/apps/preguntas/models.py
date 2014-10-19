@@ -23,5 +23,18 @@ class mpregunta(models.Model):
 			("mostrar_preguntas","permite ver las preguntas"),
 			("ver_categoria_pregunta","permite ver las categorias de una pregunta"),
 		)
+class partida(models.Model):
+	tipos=(('public','Publico'),('private','Privado'))
+	cant_preguntas=(('0','10'),('1','20'),('2','30'),('3','40'),('4','50'))
+	tiempo=(('0','10'),('1','15'),('2','20'),('3','25'),('4','30'),('5','35'),('6','40'),('7','45'),('8','50'),('9','55'),('10','60'))
+	titulo=models.CharField(max_length=200)
+	jugadores=models.PositiveIntegerField()
+	tipo_partida=models.CharField(max_length=200,choices=tipos)
+	preguntas=models.CharField(max_length=5, choices=cant_preguntas)
+	tiempo_respuesta=models.CharField(max_length=5,choices=tiempo)
+	categorias_sel=models.ManyToManyField(categorias)
+	def __unicode__(self):
+		return self.titulo
+
 
 
