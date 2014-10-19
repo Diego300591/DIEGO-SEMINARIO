@@ -61,4 +61,18 @@ def eliminar_pregunta(request,id):
 def lista_preguntas_eliminar(request):
 	lista=mpregunta.objects.all()
 	return render_to_response("preguntas/eliminar.html",{"lista":lista},RequestContext(request))
-
+def crear_partida(request):
+	if request.method=="POST":
+		form=partidaForm(request.POST)
+		user=User.objects.get(username=request.session["name"])
+		if (form.is_valid()):
+			obj=form.save(commit=False)
+			obj.usuario=user
+			obj.save()
+			obj.categoria=form.cleaned_data["categorias_sel"]
+			obj.save()
+	form=partidaForm()
+	return render_to_response("preguntas/crearpartida.html",{"form":form},RequestContext(request))
+def lista_partidas(request):
+	lista=partida.objects.all()
+	return render_to_response("preguntas/listapartidas.html",{"lista":lista},RequestContext(request))

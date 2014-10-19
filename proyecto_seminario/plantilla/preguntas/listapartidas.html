@@ -1,0 +1,8 @@
+{% extends "principal.html" %}
+{% block title %}LISTA DE PARTIDAS{% endblock title %}
+{% block encabezado %}CREAR PARTIDAS{% endblock encabezado %}
+{% block contenido %}
+{% for i in lista %}
+{{i.categorias_sel}}
+{% endfor %}
+{% endblock %}

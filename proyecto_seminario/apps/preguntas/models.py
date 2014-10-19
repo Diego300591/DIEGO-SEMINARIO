@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models import Q
+from django.db import connection
 # Create your models here.
 class categorias(models.Model):
 	nombre=models.CharField(max_length=50)
@@ -33,6 +36,7 @@ class partida(models.Model):
 	preguntas=models.CharField(max_length=5, choices=cant_preguntas)
 	tiempo_respuesta=models.CharField(max_length=5,choices=tiempo)
 	categorias_sel=models.ManyToManyField(categorias)
+	usuario=models.ForeignKey(User)
 	def __unicode__(self):
 		return self.titulo
 
