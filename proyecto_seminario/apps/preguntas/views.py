@@ -1,9 +1,11 @@
+#encoding:UTF-8
 from django.shortcuts import render,render_to_response,get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.sessions.models import Session
 from django.contrib.auth import login,logout,authenticate
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,Group,Permission
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from .forms import *
 from .models import *
 import pdb
@@ -70,7 +72,7 @@ def crear_partida(request):
 		user=User.objects.get(username=request.session["username"])
 		if(form.is_valid()):
 			obj=form.save(commit=False)
-			obj.usuario=user
+			obj.usuario=User.objects.get(username=request.session["username"])
 			obj.save()
 			obj.categoria=form.cleaned_data["categorias_sel"]
 			obj.save()

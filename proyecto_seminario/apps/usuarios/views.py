@@ -6,6 +6,7 @@ from django.contrib.auth import login,logout,authenticate
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.models import User,Group,Permission
 from django.contrib.sessions.models import Session
+from proyecto_seminario.apps.preguntas.models import * 
 from .models import *
 from .forms import *
 from django.forms import forms
@@ -16,8 +17,8 @@ import pdb
 # Create your views here.
 def pagina_principal(request):
 	menu=permisos(request)
-	fecha=datetime.datetime.now()
-	return render_to_response("principal.html",{"fecha":fecha,"menu":menu},RequestContext(request))
+	lista=partida.objects.all()
+	return render_to_response("principal.html",{"lista":lista,"menu":menu},RequestContext(request))
 def nuevo_usuario(request):
 	menu=permisos(request)
   	if request.method=="POST":
@@ -107,19 +108,6 @@ def error(request):
 #   			ser_humano=True
 #   	form=CaptchaTestForm()
 #   	return render_to_response("usuarios/captcha.html",locals(),{"form":form},RequestContext(request))
-def permisos(request):
-	listadepermisos=[]
-	usuario=request.user
-	if usuario.has_perm("preguntas.add_categorias"):
-		listadepermisos.append({"url":"/preguntas/crearcategorias/","label":"agregar categorias"})
-	if usuario.has_perm("preguntas.add_mpregunta"):
-		listadepermisos.append({"url":"/preguntas/crearpreguntas/","label":"agregar preguntas"})
-	if usuario.has_perm("preguntas.mostrar_preguntas"):
-		listadepermisos.append({"url":"/preguntas/verpreguntas/","label":"ver preguntas"})
-	if usuario.has_perm("preguntas.ver_categoria"):
-		listadepermisos.append({"url":"/preguntas/vercategorias/","label":"ver categorias"})
-	return listadepermisos
-
 def myview(request):
 	if request.method == "POST":
 		edit_form = EditForm(request.POST)
@@ -137,5 +125,16 @@ def myview(request):
 	else:
 		edit_form=EditForm()
 		return render_to_response("usuarios/captcha2.html",{"edit_form":edit_form},RequestContext(request))
-
+def permisos(request):
+	listadepermisos=[]
+	usuario=request.user
+	if usuario.has_perm("preguntas.add_categorias"):
+		listadepermisos.append({"url":"/preguntas/crearcategorias/","label":"agregar categorias"})
+	if usuario.has_perm("preguntas.add_mpregunta"):
+		listadepermisos.append({"url":"/preguntas/crearpreguntas/","label":"agregar preguntas"})
+	if usuario.has_perm("preguntas.mostrar_preguntas"):
+		listadepermisos.append({"url":"/preguntas/verpreguntas/","label":"ver preguntas"})
+	if usuario.has_perm("preguntas.ver_categoria"):
+		listadepermisos.append({"url":"/preguntas/vercategorias/","label":"ver categorias"})
+	return listadepermisos
 
