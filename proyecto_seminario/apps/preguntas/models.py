@@ -5,7 +5,6 @@ from django.db import connection
 # Create your models here.
 class categorias(models.Model):
 	nombre=models.CharField(max_length=50)
-	usuario=models.ForeignKey(User, null=True)
 	def __unicode__(self):
 		return self.nombre
 	class Meta():
