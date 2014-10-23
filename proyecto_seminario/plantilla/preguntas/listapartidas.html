@@ -3,6 +3,8 @@
 {% block encabezado %}CREAR PARTIDAS{% endblock encabezado %}
 {% block contenido %}
 {% for i in lista %}
-{{i.categorias_sel}}
+{% for j in i.categorias_sel.all %}
+{{ j.nombre }}
+{% endfor %}
 {% endfor %}
 {% endblock %}
