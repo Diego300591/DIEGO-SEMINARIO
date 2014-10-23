@@ -69,10 +69,10 @@ def lista_preguntas_eliminar(request):
 def crear_partida(request):
 	if (request.method=="POST"):
 		form=partidaForm(request.POST)
-		user=User.objects.get(username=request.session["username"])
+		user=User.objects.get(username=request.user)
 		if(form.is_valid()):
 			obj=form.save(commit=False)
-			obj.usuario=User.objects.get(username=request.session["username"])
+			obj.usuario=User.objects.get(username=request.user)
 			obj.save()
 			obj.categoria=form.cleaned_data["categorias_sel"]
 			obj.save()

@@ -12,6 +12,7 @@ class categorias(models.Model):
 			("ver_categoria","permite ver las categorias"),
 		)
 class mpregunta(models.Model):
+	usuario=models.ForeignKey(User, null=True)
 	categoria=models.ForeignKey(categorias)
 	enunciado=models.TextField()
 	respuesta1=models.CharField(max_length=200)

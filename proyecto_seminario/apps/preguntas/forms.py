@@ -7,6 +7,7 @@ class categoriaForm(forms.ModelForm):
 class preguntaForm(ModelForm):
 	class Meta:
 		model=mpregunta
+		exclude=["usuario"]
 class partidaForm(ModelForm):
 	class Meta:
 		model=partida
