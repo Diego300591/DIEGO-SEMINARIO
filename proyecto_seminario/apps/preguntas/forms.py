@@ -4,6 +4,7 @@ from .models import *
 class categoriaForm(forms.ModelForm):
 	class Meta:
 		model=categorias
+		exclude=["usuario"]
 class preguntaForm(ModelForm):
 	class Meta:
 		model=mpregunta

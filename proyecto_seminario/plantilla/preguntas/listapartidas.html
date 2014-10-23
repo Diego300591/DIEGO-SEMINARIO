@@ -5,9 +5,9 @@
 {% for i in lista %}
 {{ i.titulo }}
 {{ i.jugadores }}
-{% for j in i.categorias_sel.all %}
-{{ j.nombre }}
-{% endfor %}
+	{% for j in i.categorias_sel.all %}
+		{{ j.nombre }}
+	{% endfor %}
 {{ i.usuario }}
 {% endfor %}
 {% endblock %}

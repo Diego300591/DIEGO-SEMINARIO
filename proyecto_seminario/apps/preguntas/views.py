@@ -74,11 +74,7 @@ def crear_partida(request):
 			obj=form.save(commit=False)
 			obj.usuario=User.objects.get(username=request.user)
 			obj.save()
-			categoria=form.cleaned_data["categorias_sel"]
-			obj.categoria.add(categoria)
-			c=Categoria.objects.get(id=categoria)
-			obj.categoria.add(c)
-			obj.save()
+			return HttpResponseRedirect("/preguntas/listapartidas/")
 	form=partidaForm()
 	return render_to_response("preguntas/crearpartida.html",{"form":form},RequestContext(request))
 def lista_partidas(request):
