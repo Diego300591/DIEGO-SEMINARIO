@@ -36,7 +36,7 @@ class partida(models.Model):
 	tipo_partida=models.CharField(max_length=200,choices=tipos)
 	preguntas=models.CharField(max_length=5, choices=cant_preguntas)
 	tiempo_respuesta=models.CharField(max_length=5,choices=tiempo)
-	categorias_sel=models.ManyToManyField(categorias)
+	categorias_sel=models.ManyToManyField(categorias, blank=False)
 	usuario=models.ForeignKey(User)
 	def __unicode__(self):
 		return self.titulo

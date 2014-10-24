@@ -68,14 +68,17 @@ def lista_preguntas_eliminar(request):
 	return render_to_response("preguntas/eliminar.html",{"lista":lista},RequestContext(request))
 def crear_partida(request):
 	if (request.method=="POST"):
+		usuario=User.objects.get(username=request.user)
 		form=partidaForm(request.POST)
-		user=User.objects.get(username=request.user)
+		#usuario=User.objects.get(username=request.user)
 		if(form.is_valid()):
 			obj=form.save(commit=False)
-			obj.usuario=User.objects.get(username=request.user)
+			obj.usuario=usuario
 			obj.save()
+			form.save_m2m()
 			return HttpResponseRedirect("/preguntas/listapartidas/")
-	form=partidaForm()
+	else:
+		form=partidaForm()
 	return render_to_response("preguntas/crearpartida.html",{"form":form},RequestContext(request))
 def lista_partidas(request):
 	lista=partida.objects.all()
