@@ -17,7 +17,7 @@ import pdb
 # Create your views here.
 def pagina_principal(request):
 	menu=permisos(request)
-	lista=partida.objects.all()
+	lista=partida.objects.filter(tipo_partida='public')
 	return render_to_response("principal.html",{"lista":lista,"menu":menu},RequestContext(request))
 def nuevo_usuario(request):
 	menu=permisos(request)

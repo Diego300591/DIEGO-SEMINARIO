@@ -30,7 +30,7 @@ class mpregunta(models.Model):
 class partida(models.Model):
 	tipos=(('public','Publico'),('private','Privado'))
 	cant_preguntas=(('0','10'),('1','20'),('2','30'),('3','40'),('4','50'))
-	tiempo=(('0','10'),('1','15'),('2','20'),('3','25'),('4','30'),('5','35'),('6','40'),('7','45'),('8','50'),('9','55'),('10','60'))
+	tiempo=(('0','10 segundos'),('1','15 segundos'),('2','20 segundos'),('3','25 segundos'),('4','30 segundos'),('5','35 segundos'),('6','40 segundos'),('7','45 segundos'),('8','50 segundos'),('9','55 segundos'),('10','60 segundos'))
 	titulo=models.CharField(max_length=200)
 	jugadores=models.PositiveIntegerField()
 	tipo_partida=models.CharField(max_length=200,choices=tipos)

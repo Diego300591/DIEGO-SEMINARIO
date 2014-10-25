@@ -6,6 +6,7 @@ from django.contrib.sessions.models import Session
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.models import User,Group,Permission
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+from django.db.models import Q
 from .forms import *
 from .models import *
 import pdb
@@ -76,10 +77,10 @@ def crear_partida(request):
 			obj.usuario=usuario
 			obj.save()
 			form.save_m2m()
-			return HttpResponseRedirect("/preguntas/listapartidas/")
+			return HttpResponseRedirect("/trivia/")
 	else:
 		form=partidaForm()
 	return render_to_response("preguntas/crearpartida.html",{"form":form},RequestContext(request))
 def lista_partidas(request):
-	lista=partida.objects.all()
+	lista=partida.objects.filter(tipo_partida='public')
 	return render_to_response("preguntas/listapartidas.html",{"lista":lista},RequestContext(request))

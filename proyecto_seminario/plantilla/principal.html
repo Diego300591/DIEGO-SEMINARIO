@@ -37,15 +37,18 @@
 	</ul>
 	<h1><center>{% block encabezado %}BIENVENIDOS A LA TRIVIA{% endblock encabezado %}</center></h1>
 	{% block contenido %}
-	<ul id="lista partidas">
 	{% for i in lista %}
-	<li><ul>{{ i.titulo }}
-	<li>JUGADORES: {{ i.jugadores }} </li>
-	<li>CANTIDAD DE PREGUNTAS: {{ i.preguntas }}</li>
-	<li>TIEMPO MAXIMO DE RESPUESTA: {{ i.tiempo_respuesta }} seg</li>
-	</ul></li>
+	<table class="normal">
+		<tr><th>TITULO DE LA PARTIDA</th><th>{{ i.titulo }}</th></tr>
+		<tr><th>JUGADORES</th><th>{{ i.jugadores }}</th></tr>
+		<tr><th>PREGUNTAS</th><th>{{ i.preguntas }}</th></tr>
+		<tr><th>TIEMPO POR PREGUNTA</th><th>{{ i.tiempo_respuesta }}</th></tr>
+		<tr><th>CATEGORIAS</th><th>{% for j in i.categorias_sel.all %}<table><tr>{{ j.nombre }}</tr>{% endfor %}</table></th></tr>
+		<tr><th>USUARIO</th><th>{{ i.usuario }}</th></tr>
+		<tr><th><form class="envio"><input type="submit" value="ENTRAR"></form></th></tr>
+	</table>
+	<BR><BR>
 	{% endfor %}
-	</ul>
 	{% endblock contenido %}
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
