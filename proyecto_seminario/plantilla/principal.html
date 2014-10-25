@@ -45,9 +45,8 @@
 		<tr><th>TIEMPO POR PREGUNTA</th><th>{{ i.tiempo_respuesta }}</th></tr>
 		<tr><th>CATEGORIAS</th><th>{% for j in i.categorias_sel.all %}<table><tr>{{ j.nombre }}</tr>{% endfor %}</table></th></tr>
 		<tr><th>USUARIO</th><th>{{ i.usuario }}</th></tr>
-		<tr><th><form class="envio"><input type="submit" value="ENTRAR"></form></th></tr>
 	</table>
-	<BR><BR>
+	<BR>
 	{% endfor %}
 	{% endblock contenido %}
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
