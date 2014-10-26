@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{% block title %}Pagina Principal{% endblock title %}</title>
 	<link href="/static/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/static/css/form.css" type="text/css" rel="stylesheet">
+	<link href="/static/css/boton_unete.css" rel="stylesheet">
+	<!--<link href="/static/css/form.css" type="text/css" rel="stylesheet">-->
 	<link href="/static/css/lista.css" type="text/css" rel="stylesheet">
 	<!--<link href="/static/css/perfil.css" type="text/css" rel="stylesheet">-->
 	<link href="/static/css/partidas.css" type="text/css" rel="stylesheet">
@@ -40,14 +41,14 @@
 	<h1><center>UNETE A LAS PARTIDAS</center></h1>
 	{% block contenido %}
 	{% for i in lista %}
-	<table class="normal">
+	<table class="normal" HEIGHT="350">
 		<tr><th>TITULO DE LA PARTIDA:</th><th>{{ i.titulo }}</th></tr>
 		<tr><th>JUGADORES:</th><th>{{ i.jugadores }}</th></tr>
 		<tr><th>PREGUNTAS:</th><th>{{ i.preguntas }}</th></tr>
 		<tr><th>TIEMPO POR PREGUNTA:</th><th>{{ i.tiempo_respuesta }}</th></tr>
 		<tr><th>CATEGORIAS:</th><th>{% for j in i.categorias_sel.all %}<table><tr>{{ j.nombre }}</tr>{% endfor %}</table></th></tr>
 		<tr><th>USUARIO:</th><th>{{ i.usuario }}</th></tr>
-		<tr><th><form><input type="submit" value="ENTRAR"></form></th></tr>
+		<tr><td COLSPAN="2" ALIGN="center"><form><input type="submit" value="ENTRAR"></form></td></tr>
 	</table>
 	<BR>
 	{% endfor  %}
