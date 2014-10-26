@@ -1,8 +1,7 @@
 table {
 	border: 1px solid #000;
 	border-collapse:collapse;
-	width:650px;
-
+	width:500px;
 }
 table td{
 	border: 1px solid #000;
