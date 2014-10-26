@@ -47,7 +47,7 @@
 		<tr><th>PREGUNTAS:</th><th>{{ i.preguntas }}</th></tr>
 		<tr><th>TIEMPO POR PREGUNTA:</th><th>{{ i.tiempo_respuesta }}</th></tr>
 		<tr><th>CATEGORIAS:</th><th>{% for j in i.categorias_sel.all %}<table><tr>{{ j.nombre }}</tr>{% endfor %}</table></th></tr>
-		<tr><th>USUARIO:</th><th>{{ i.usuario }}</th></tr>
+		<tr><th>CREADO POR:</th><th>{{ i.usuario }}</th></tr>
 		<tr><td COLSPAN="2" ALIGN="center"><form><input type="submit" value="ENTRAR"></form></td></tr>
 	</table>
 	<BR>

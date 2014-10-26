@@ -13,6 +13,7 @@
 	<link href="/static/css/facebook.css" type="text/css" rel="stylesheet">
 	<link href="/static/css/textarea.css" type="text/css" rel="stylesheet">
 	<link href="/static/css/captchas.css" type="text/css" rel="stylesheet">
+	<link href="/static/css/profile.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<ul class="menu">
@@ -35,7 +36,8 @@
 	</ul>
 	<h1><center>BIENVENIDOS!!! {{user}}</center></h1>
 	<h1><center>DATOS PERSONALES</center></CENTER></h1>
-	<TABLE ALIGN="center" WIDTH="500">
+	<center>
+	<TABLE WIDTH="500">
 	<TR>
 		<TD>NICK</TD>
 		<TD>{{user.perfil.nick}}</TD>
@@ -58,6 +60,7 @@
 		<TD>{{user.perfil.puntaje_total}}</TD>
 	</TR>
 	</TABLE>
+	</center>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
