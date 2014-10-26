@@ -8,7 +8,8 @@
 	<link href="/static/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/static/css/form.css" type="text/css" rel="stylesheet">
 	<link href="/static/css/lista.css" type="text/css" rel="stylesheet">
-	<link href="/static/css/perfil.css" type="text/css" rel="stylesheet">
+	<!--<link href="/static/css/perfil.css" type="text/css" rel="stylesheet">-->
+	<link href="/static/css/partidas.css" type="text/css" rel="stylesheet">
 	<link href="/static/css/cuerpo.css" type="text/css" rel="stylesheet">
 	<link href="/static/css/facebook.css" type="text/css" rel="stylesheet">
 	<link href="/static/css/textarea.css" type="text/css" rel="stylesheet">
@@ -36,18 +37,20 @@
 		<li><a href="/trivia/logueousuario/">Loguear Usuario</a></li>-->
 	</ul>
 	<h1><center>{% block encabezado %}BIENVENIDOS A LA TRIVIA{% endblock encabezado %}</center></h1>
+	<h1><center>UNETE A LAS PARTIDAS</center></h1>
 	{% block contenido %}
 	{% for i in lista %}
 	<table class="normal">
-		<tr><th>TITULO DE LA PARTIDA</th><th>{{ i.titulo }}</th></tr>
-		<tr><th>JUGADORES</th><th>{{ i.jugadores }}</th></tr>
-		<tr><th>PREGUNTAS</th><th>{{ i.preguntas }}</th></tr>
-		<tr><th>TIEMPO POR PREGUNTA</th><th>{{ i.tiempo_respuesta }}</th></tr>
-		<tr><th>CATEGORIAS</th><th>{% for j in i.categorias_sel.all %}<table><tr>{{ j.nombre }}</tr>{% endfor %}</table></th></tr>
-		<tr><th>USUARIO</th><th>{{ i.usuario }}</th></tr>
+		<tr><th>TITULO DE LA PARTIDA:</th><th>{{ i.titulo }}</th></tr>
+		<tr><th>JUGADORES:</th><th>{{ i.jugadores }}</th></tr>
+		<tr><th>PREGUNTAS:</th><th>{{ i.preguntas }}</th></tr>
+		<tr><th>TIEMPO POR PREGUNTA:</th><th>{{ i.tiempo_respuesta }}</th></tr>
+		<tr><th>CATEGORIAS:</th><th>{% for j in i.categorias_sel.all %}<table><tr>{{ j.nombre }}</tr>{% endfor %}</table></th></tr>
+		<tr><th>USUARIO:</th><th>{{ i.usuario }}</th></tr>
+		<tr><th><form><input type="submit" value="ENTRAR"></form></th></tr>
 	</table>
 	<BR>
-	{% endfor %}
+	{% endfor  %}
 	{% endblock contenido %}
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
