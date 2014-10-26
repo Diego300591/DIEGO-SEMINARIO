@@ -1,49 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>CONTROL DE PREGUNTAS</title>
-	<link href="/static/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/static/css/form.css" type="text/css" rel="stylesheet">
-	<link href="/static/css/lista.css" type="text/css" rel="stylesheet">
-	<link href="/static/css/perfilusuario.css" type="text/css" rel="stylesheet">
-	<link href="/static/css/cuerpo.css" type="text/css" rel="stylesheet">
-	<link href="/static/css/facebook.css" type="text/css" rel="stylesheet">
-	<link href="/static/css/textarea.css" type="text/css" rel="stylesheet">
-	<link href="/static/css/captchas.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-	<ul class="menu">
-		<li><a href="/trivia/">Principal</a></li>
-		<li><a href="/trivia/nuevousuario/">Nuevo Usuario</a></li>
-		{% if user.is_anonymous %}
-		<li><a href="/trivia/login">Login</a></li>
-		{% endif %}
-		{% if not user.is_anonymous %}
-		<li><a href="/trivia/logout">Logout {{user}}</a></li>
-		<li><a href="/trivia/perfil/">Ver perfil {{user}}</a></li>
-		<li><a href="/preguntas/crearpartida/">Nueva Partida</a></li>
-		{% block aux %}
-		{%for item in menu%}
-			<li><a href="{{item.url}}">{{item.label}}</a></li>
-		{%endfor%}
-		{% endblock aux %}
-		{% endif %}
-		<!--<li><a href="/trivia/usuarionuevo/">Regístrese</a></li>
-		<li><a href="/trivia/perfilusuario/">Crear Perfil</a></li>
-		<li><a href="/trivia/logueousuario/">Loguear Usuario</a></li>-->
-	</ul>
-	<h1><center>CONTROL DE PREGUNTAS</center></h1>
-	<ol>
-	{% for i in lista %}
-	<li><a href="/preguntas/modificar/{{i.id}}">{{i.enunciado}}</a></li>
-	{% endfor %}
-	</ol>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/static/js/bootstrap.min.js"></script>
-</body>
-</html>
+{% extends "principal.html" %}
+{% block title %}CONTROL DE PREGUNTAS{% endblock title %}
+<h6><center>Seleccione una pregunta para modificar o mantener</center></h6>	
+{% block css1 %}<link href="/static/css/form.css" type="text/css" rel="stylesheet">{% endblock css1 %}
+{% block css2 %}<link href="/static/css/perfilusuario.css" type="text/css" rel="stylesheet">{% endblock css2 %}
+{% block aux %}
+<li><a href="/preguntas/crearpreguntas/">Crear preguntas</a></li>
+<li><a href="/preguntas/verpreguntas/">Ver preguntas</a></li>
+<li><a href="/preguntas/detallespreguntas/">Detalles por pregunta</a></li>
+<li><a href="/preguntas/preguntaseliminar/">Eliminar pregunta</a></li>
+<li><a href="/preguntas/controlpreguntas/">Control de preguntas</a></li>
+{% endblock aux %}
+{% block encabezado %}CONTROL DE PREGUNTAS{% endblock encabezado %}
+{% block contenido %}
+<ol>
+{% for i in lista %}
+<li><a href="/preguntas/modificar/{{i.id}}">{{i.enunciado}}</a></li>
+{% endfor %}
+</ol>
+{% endblock contenido %}
