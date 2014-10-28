@@ -13,7 +13,7 @@ class preguntaForm(ModelForm):
 		exclude=["usuario"]
 class partidaForm(ModelForm):
 	tipo_partida=forms.CharField(widget=forms.RadioSelect(tipo=tipos))
-	categorias_sel=forms.CharField(widget=forms.CheckboxSelectMultiple(categoria=categorias))
+	categorias_sel=forms.CharField(widget=forms.CheckboxSelectMultiple(categorias=categoria))
 	class Meta:
 		model=partida
 		exclude=["usuario"]
