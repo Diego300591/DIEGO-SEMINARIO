@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from .models import *
+from django.forms.extras.widgets import *
 tipos=(('public','Publico'),('private','Privado'))
 categoria=categorias.objects.all()
 class categoriaForm(forms.ModelForm):
