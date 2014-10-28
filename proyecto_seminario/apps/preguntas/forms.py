@@ -16,7 +16,7 @@ class preguntaForm(ModelForm):
 		exclude=["usuario"]
 class partidaForm(ModelForm):
 	tipo_partida=forms.ChoiceField(widget=forms.RadioSelect,choices=tipos)
-	categorias_sel=forms.ModelMultipleChoiceField(queryset=categorias.objects.all(),widget=forms.CheckboxSelectMultiple())
+	categorias_sel=forms.ModelMultipleChoiceField(queryset=categorias.objects.all(),widget=forms.CheckboxSelectMultiple()) 
 	class Meta:
 		model=partida
 		exclude=["usuario"]

@@ -32,3 +32,14 @@ input[type="submit"]:hover{
 	background: #4A88F4;
 	cursor:pointer;
 }
+
+/*/select {
+	list-style: none;
+}*/
+
+input[type="button"]{
+	margin-bottom: 0;
+	background: #1668C4;
+	color:#fff;
+	border: none;
+}
