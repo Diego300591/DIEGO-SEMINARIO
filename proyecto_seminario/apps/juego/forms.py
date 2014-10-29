@@ -7,10 +7,6 @@ class UsuarioForm(ModelForm):
 	class Meta:
 		model=Usuario
 		exclude=["fecha"]
-class PerfilForm(ModelForm):
-	password=forms.CharField(widget=forms.PasswordInput)
-	class Meta:
-		model=Perfil
 class Logueo(forms.Form):
 	nick=forms.CharField(max_length=200)
 	password=forms.CharField(widget=forms.PasswordInput)

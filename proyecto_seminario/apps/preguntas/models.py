@@ -29,8 +29,8 @@ class mpregunta(models.Model):
 		)
 class partida(models.Model):
 	tipos=(('public','Publico'),('private','Privado'))
-	cant_preguntas=(('0','10'),('1','20'),('2','30'),('3','40'),('4','50'))
-	tiempo=(('0','10 segundos'),('1','15 segundos'),('2','20 segundos'),('3','25 segundos'),('4','30 segundos'),('5','35 segundos'),('6','40 segundos'),('7','45 segundos'),('8','50 segundos'),('9','55 segundos'),('10','60 segundos'))
+	cant_preguntas=(('10','10'),('20','20'),('30','30'),('40','40'),('50','50'))
+	tiempo=(('10','10'),('15','15'),('20','20'),('25','25'),('30','30'),('35','35'),('40','40'),('45','45'),('50','50'),('55','55'),('60','60'))
 	titulo=models.CharField(max_length=200)
 	jugadores=models.PositiveIntegerField()
 	tipo_partida=models.CharField(max_length=200,choices=tipos)
@@ -40,6 +40,3 @@ class partida(models.Model):
 	usuario=models.ForeignKey(User)
 	def __unicode__(self):
 		return self.titulo
-
-
-

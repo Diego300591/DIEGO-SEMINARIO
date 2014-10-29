@@ -36,18 +36,19 @@
 	</ul>
 	<h1><center>{% block encabezado %}BIENVENIDOS A LA TRIVIA{% endblock encabezado %}</center></h1>
 	{% block contenido %}
+	{% if not user.is_anonymous %}
 	{% for i in lista %}
 	<table class="normal" HEIGHT="500">
 		<tr><th>TITULO DE LA PARTIDA:</th><th>{{ i.titulo }}</th></tr>
 		<tr><th>JUGADORES:</th><th>{{ i.jugadores }}</th></tr>
 		<tr><th>PREGUNTAS:</th><th>{{ i.preguntas }}</th></tr>
-		<tr><th>TIEMPO POR PREGUNTA:</th><th>{{ i.tiempo_respuesta }}</th></tr>
-		<tr><th>CATEGORIAS:</th><th>{% for j in i.categorias_sel.all %}<table><tr>{{ j.nombre }}<br></tr>{% endfor %}</table></th></tr>
+		<tr><th>TIEMPO POR PREGUNTA:</th><th>{{ i.tiempo_respuesta }} segundos</th></tr>
+		<tr><th>CATEGORIAS:</th><th>{% for j in i.categorias_sel.all %}<table><tr>{{ j.nombre }} &nbsp</tr>{% endfor %}</table></th></tr>
 		<tr><th>CREADO POR:</th><th>{{ i.usuario }}</th></tr>
 		<tr><td COLSPAN="2" ALIGN="center"><form><input type="submit" value="ENTRAR"></form></td></tr>
 	</table>
-	<BR>
 	{% endfor  %}
+	{% endif %}
 	{% endblock contenido %}
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

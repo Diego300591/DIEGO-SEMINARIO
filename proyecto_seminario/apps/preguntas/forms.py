@@ -3,8 +3,8 @@ from django.forms import ModelForm
 from .models import *
 from django.forms.extras.widgets import *
 tipos=(('public','Publico'),('private','Privado'))
-cant_preguntas=(('0','10'),('1','20'),('2','30'),('3','40'),('4','50'))
-tiempo=(('0','10 segundos'),('1','15 segundos'),('2','20 segundos'),('3','25 segundos'),('4','30 segundos'),('5','35 segundos'),('6','40 segundos'),('7','45 segundos'),('8','50 segundos'),('9','55 segundos'),('10','60 segundos'))
+cant_preguntas=(('10','10'),('20','20'),('30','30'),('40','40'),('50','50'))
+tiempo=(('10 segundos','10 segundos'),('15 segundos','15 segundos'),('20 segundos','20 segundos'),('25 segundos','25 segundos'),('30 segundos','30 segundos'),('35 segundos','35 segundos'),('40 segundos','40 segundos'),('45 segundos','45 segundos'),('50 segundos','50 segundos'),('55 segundos','55 segundos'),('60 segundos','60 segundos'))
 categoria=categorias.objects.all()
 class categoriaForm(forms.ModelForm):
 	class Meta:
