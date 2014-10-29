@@ -44,3 +44,19 @@ input[type="button"]{
 	color:#fff;
 	border: none;
 }
+
+input[type="radio"]{
+	display:inline-block;
+	width:10px;
+}
+
+input[type="checkbox"]{
+	display: inline-block;
+	width:10px;
+}
+
+label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+}
