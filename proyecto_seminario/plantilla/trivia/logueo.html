@@ -1,8 +1,0 @@
-{% extends "principal.html "%}
-{% block contenido %}
-<div class="form">
-<form action="" method="POST">{{logueo.as_ul}}{% csrf_token %}<input type="submit" value=".::ENVIAR::."></form>
-</div>
-{{error}}
-<p><a href="{% url 'socialauth_begin' 'facebook' %}" class="PrimaryLink">Iniciar sesión con la cuenta de Facebook</a></p>
-{% endblock %}
