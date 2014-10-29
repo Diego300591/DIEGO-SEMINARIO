@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'proyecto_seminario.apps.usuarios',
-    'proyecto_seminario.apps.juego',
     'proyecto_seminario.apps.preguntas',
     'social_auth',
     'captcha',
