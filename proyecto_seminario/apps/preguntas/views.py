@@ -19,7 +19,7 @@ def crear_categoria(request):
 		fcategoria=categoriaForm(request.POST)
 		if fcategoria.is_valid():
 			fcategoria.save()
-			return HttpResponseRedirect("/trivia/")
+			return HttpResponseRedirect("/preguntas/vercategorias/")
 	fcategoria=categoriaForm()
 	return render_to_response("preguntas/crear_categorias.html",{"fcategoria":fcategoria},RequestContext(request))
 def crear_pregunta(request):
@@ -30,7 +30,7 @@ def crear_pregunta(request):
 		fpregunta=preguntaForm(request.POST)
 		if fpregunta.is_valid():
 			fpregunta.save()
-			return HttpResponseRedirect("/trivia/")
+			return HttpResponseRedirect("/preguntas/verpreguntas/")
 	fpregunta=preguntaForm()
 	return render_to_response("preguntas/crear_pregunta.html",{"fpregunta":fpregunta},RequestContext(request))
 def ver_preguntas(request):
