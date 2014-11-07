@@ -137,7 +137,6 @@ def permisos(request):
 	if usuario.has_perm("preguntas.ver_categoria"):
 		listadepermisos.append({"url":"/preguntas/vercategorias/","label":"ver categorias"})
 	return listadepermisos
-
 def editar_perfil(request):
 	if request.user.is_authenticated():
 		u=request.user
