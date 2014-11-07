@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     url(r'^error/$',error),
     url(r'^captchas/$',myview),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT,}),
+    url(r'^editarperfil/$',editar_perfil),
 )

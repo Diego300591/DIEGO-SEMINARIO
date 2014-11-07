@@ -138,3 +138,18 @@ def permisos(request):
 		listadepermisos.append({"url":"/preguntas/vercategorias/","label":"ver categorias"})
 	return listadepermisos
 
+def editar_perfil(request):
+	if request.user.is_authenticated():
+		u=request.user
+		usuario=User.objects.get(username=u)
+		perfil_usuario=perfil.objects.get(nick=usuario)
+		if request.method=="POST":
+			formulario=fperfil_editar(request.POST,request.FILES,instance=perfil_usuario)
+			if formulario.is_valid():
+				formulario.save()
+				return HttpResponseRedirect("/trivia/perfil/")
+		else:
+			formulario=fperfil_editar(instance=perfil_usuario)
+			return render_to_response("usuarios/modificarperfil.html",{"formulario":formulario},RequestContext(request))
+	else:
+		return HttpResponseRedirect("/trivia/")

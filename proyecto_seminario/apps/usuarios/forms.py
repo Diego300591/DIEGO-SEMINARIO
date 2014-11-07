@@ -14,6 +14,10 @@ class fperfil(forms.ModelForm):
 	class Meta:
 		model=perfil
 		exclude=['nick']
+class fperfil_editar(ModelForm):
+	class Meta:
+		model=perfil
+		exclude=['nick']
 class form_usuario(UserCreationForm):
 	username=forms.CharField(max_length=40, required=True, help_text=False, label='Nick')
 	password2=forms.CharField(help_text=False, label="Contraseña de confirmación", widget=forms.PasswordInput())
